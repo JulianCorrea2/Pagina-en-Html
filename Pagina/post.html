@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Post-It</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1.0"/>
+        <link rel="stylesheet"href="./css/estilo-notas.css">
+        <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+        <script>
+          $(document).on('ready' ,function(){
+            $("#btn").on('click' ,function(){
+              $("#todasNotas")
+              .append
+              (
+                $('<div>').attr('id', "notasnuevas").addClass('nota')
+                .append
+                (
+                    $('<div>').addClass('botoncerrar').text('X')
+                )
+                .append
+                (
+                    $('<h2>').attr('contenteditable', "true").text('Title')
+                )
+                .append
+                (
+                    $('<p>').attr('contenteditable', "true").text('Content')
+                )
+              )
+            })
+          })
+
+
+            $(document).on('ready' ,function(){
+             $("body").on('click', ".botoncerrar" ,function(){
+              $(this).parent().remove();
+             })
+            })
+        </script>
+    </head>
+    <body class="font-cover" id="inicio">
+      <div class="contenido">  
+        <form>
+          <input id="btn" class="boton" type="button" value="+">
+        </form>
+        <div id="todasNotas" class="allNotas">
+          <div id="notasnuevas" class="nota">
+            <div class="botoncerrar">x</div>
+            <h2 contenteditable="true">Title</h2>
+            <p contenteditable="true">Content</p>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
